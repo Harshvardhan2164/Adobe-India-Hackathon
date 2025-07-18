@@ -2,6 +2,14 @@ import json
 import os
 import re
 import fitz
+import unicodedata
+
+def normalize_text(text):
+    return unicodedata.normalize("NFKC", text).strip()
+
+def check_bold_italic(font_name):
+    font_name_lower = font_name.lower()
+    return ("bold" in font_name_lower) or ("italic" in font_name_lower)
 
 def extract_pdf_outline(pdf_path):
     doc = fitz.open(pdf_path)
@@ -20,15 +28,21 @@ def extract_pdf_outline(pdf_path):
             for line in block["lines"]:
                 line_text = ""
                 max_font_size = 0
+                bold_found = False
 
                 for span in line["spans"]:
-                    text = span["text"].strip()
+                    raw_text = span["text"].strip()
 
-                    if not text:
+                    if not raw_text:
                         continue
                     
-                    line_text += text + " "
+                    clean_text = normalize_text(raw_text)
+                    line_text += clean_text + " "
+                    
                     max_font_size = max(max_font_size, span["size"])
+
+                    if check_bold_italic(span["font"]):
+                        bold_found = True
                 
                 line_text = re.sub(r"\s+", " ", line_text).strip()
 
@@ -36,7 +50,8 @@ def extract_pdf_outline(pdf_path):
                     headings.append({
                         "text": line_text,
                         "page": page_num+1,
-                        "font_size": max_font_size
+                        "font_size": max_font_size,
+                        "bold": bold_found
                     })
                     
                     font_sizes.append(max_font_size)
@@ -54,10 +69,11 @@ def extract_pdf_outline(pdf_path):
         
     # Step 3: Identify title
     title_candidates = [
-        h for h in headings if h["page"] == 1 and h["font_size"] >= title_size
+        h for h in headings if h["page"] == 1 and (h["font_size"] >= title_size or h["bold"])
     ]
     
-    title = title_candidates[0]["text"] if title_candidates else "Untitled"
+    title_candidates = sorted(title_candidates, key=lambda x: (-x["font_size"], x["text"]))
+    title = title_candidates[0]["text"] if title_candidates else "Untitled Document"
 
     # Step 4: Classify headings H1/H2/H3
     outline = []
@@ -71,10 +87,13 @@ def extract_pdf_outline(pdf_path):
             level = "H2"
         elif h["font_size"] >= h2_size * 0.95:
             level = "H3"
+            
+        if h["bold"] and level is None:
+            level = "H3"
 
-        if level and len(h["text"].split()) < 15:
+        if (level or h["bold"]) and len(h["text"].split()) < 15:
             outline.append({
-                "level": level,
+                "level": level if level else "H3",
                 "text": h["text"],
                 "page": h["page"]
             })
