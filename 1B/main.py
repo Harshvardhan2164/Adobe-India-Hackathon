@@ -1,32 +1,26 @@
 import os
-import fitz  # PyMuPDF
+import fitz
 import json
 import datetime
 from tqdm import tqdm
 from sentence_transformers import SentenceTransformer, util
 
-# === Configuration ===
 DOCUMENT_FOLDER = "documents"
 MODEL_NAME = "all-MiniLM-L6-v2"
 TOP_K_SECTIONS = 1
 TOP_K_SUBSECTIONS = 3
 MAX_PAGES = 5
 
-# === Load model ===
 model = SentenceTransformer("models/all-MiniLM-L6-v2")
 
-# === Load input.json ===
 with open("challenge1b_input.json", "r", encoding="utf-8") as f:
     input_data = json.load(f)
 
-# Extract persona and job
 PERSONA = input_data["persona"]["role"]
 JOB_TO_BE_DONE = input_data["job_to_be_done"]["task"]
 
-# Extract document filenames only
 DOCUMENT_LIST = [doc["filename"] for doc in input_data["documents"]]
 
-# === Utility Functions ===
 def load_pdfs(folder, doc_list):
     documents = []
     for filename in doc_list:
@@ -63,7 +57,6 @@ def semantic_ranking(sections, query, top_k):
     top_indices = scores.argsort(descending=True)[:top_k]
     return [sections[i] for i in top_indices]
 
-# === Main Processing ===
 def analyze_documents():
     all_docs = load_pdfs(DOCUMENT_FOLDER, DOCUMENT_LIST)
     timestamp = datetime.datetime.now().isoformat()
@@ -118,8 +111,7 @@ def analyze_documents():
     with open("output.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print("\n✅ Output saved to output.json")
+    print("\n Output saved to output.json")
 
-# === Entry Point ===
 if __name__ == "__main__":
     analyze_documents()
