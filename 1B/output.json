@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "input_documents": [
+      {
+        "filename": "South of France - Cities.pdf",
+        "title": "South of France - Cities"
+      },
+      {
+        "filename": "South of France - Cuisine.pdf",
+        "title": "South of France - Cuisine"
+      },
+      {
+        "filename": "South of France - History.pdf",
+        "title": "South of France - History"
+      },
+      {
+        "filename": "South of France - Restaurants and Hotels.pdf",
+        "title": "South of France - Restaurants and Hotels"
+      },
+      {
+        "filename": "South of France - Things to Do.pdf",
+        "title": "South of France - Things to Do"
+      },
+      {
+        "filename": "South of France - Tips and Tricks.pdf",
+        "title": "South of France - Tips and Tricks"
+      },
+      {
+        "filename": "South of France - Traditions and Culture.pdf",
+        "title": "South of France - Traditions and Culture"
+      }
+    ],
+    "persona": {
+      "role": "Travel Planner"
+    },
+    "job_to_be_done": {
+      "task": "Plan a trip of 4 days for a group of 10 college friends."
+    },
+    "processing_timestamp": "2025-07-19T14:55:51.858717"
+  },
+  "extracted_sections": [
+    {
+      "document": "South of France - Cities.pdf",
+      "page_number": 3,
+      "section_title": "• ",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Cuisine.pdf",
+      "page_number": 4,
+      "section_title": "• ",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 1,
+      "section_title": "The South of France, renowned for its picturesque ",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 3,
+      "section_title": "• ",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 2,
+      "section_title": "• ",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 1,
+      "section_title": "The Ultimate South of France Travel Companion: You",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Traditions and Culture.pdf",
+      "page_number": 4,
+      "section_title": "Christmas in Provence is marked by unique traditio",
+      "importance_rank": 1
+    }
+  ],
+  "sub_section_analysis": [
+    {
+      "document": "South of France - Cities.pdf",
+      "page_number": 3,
+      "refined_text": [
+        "Boat Trip to the Calanques: Take a boat trip to the Calanques, a series of stunning",
+        "limestone cliﬀs and coves along the coast."
+      ]
+    },
+    {
+      "document": "South of France - Cuisine.pdf",
+      "page_number": 4,
+      "refined_text": [
+        "truly memorable dining experience.",
+        "wines. The menu features dishes that pair beautifully with the local wines, creating a",
+        "sophisticated menu that highlights the flavors of the region. The restaurant is located"
+      ]
+    },
+    {
+      "document": "South of France - History.pdf",
+      "page_number": 1,
+      "refined_text": [
+        "points of interest to help you plan an enriching and unforgettable trip.",
+        "This guide will take you through the histories of major cities, famous historical sites, and other",
+        "stunning coastline, is also steeped in history. From ancient Roman ruins to medieval"
+      ]
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 3,
+      "refined_text": [
+        "Club 55 (Saint-Tropez): This iconic beach club oﬀers a relaxed, family-friendly",
+        "beachside location and casual vibe make it perfect for families.",
+        "atmosphere with a menu featuring fresh seafood and Mediterranean dishes. The"
+      ]
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 2,
+      "refined_text": [
+        "Mediterranean Coast: Charter a yacht or join a sailing tour to explore the coastline"
+      ]
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 1,
+      "refined_text": [
+        "The Ultimate South of France Travel Companion: Your Comprehensive Guide to Packing,"
+      ]
+    },
+    {
+      "document": "South of France - Traditions and Culture.pdf",
+      "page_number": 4,
+      "refined_text": [
+        "heritage. One of the most distinctive customs is the \"13 Desserts,\" a feast of thirteen diﬀerent",
+        "twelve apostles. Another tradition is the \"santon\" figurines, which are handcrafted clay figures",
+        "sweets served after Midnight Mass on Christmas Eve. The number represents Jesus and the"
+      ]
+    }
+  ]
+}
