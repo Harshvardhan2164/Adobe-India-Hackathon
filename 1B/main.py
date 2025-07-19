@@ -11,7 +11,7 @@ TOP_K_SECTIONS = 1
 TOP_K_SUBSECTIONS = 3
 MAX_PAGES = 5
 
-model = SentenceTransformer("models/all-MiniLM-L6-v2")
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 with open("challenge1b_input.json", "r", encoding="utf-8") as f:
     input_data = json.load(f)
