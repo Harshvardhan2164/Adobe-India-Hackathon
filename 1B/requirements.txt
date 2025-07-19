@@ -1,0 +1,6 @@
+transformers==4.41.0
+torch==2.2.2
+sentence-transformers==2.5.1
+PyMuPDF==1.23.22
+faiss-cpu==1.7.4
+scikit-learn==1.4.2
