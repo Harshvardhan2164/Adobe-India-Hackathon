@@ -120,7 +120,7 @@ intelligent-doc-analyzer
 
 ```
 .
-├── new_main.py
+├── main.py
 ├── challenge1b_input.json
 ├── output.json (generated)
 ├── documents/
