@@ -25,8 +25,6 @@ The system runs **fully offline**, uses a **lightweight SentenceTransformer mode
 - **Dockerized for Easy Deployment**  
   Easily run in isolated environments using Docker (CPU-only, <1GB RAM usage).
 
----
-
 ## Output Format
 
 Each run produces an `output.json` file like this:
@@ -61,16 +59,12 @@ Each run produces an `output.json` file like this:
 }
 ```
 
----
-
 ## Tech Stack
 
 - **Python 3.10**
 - **PyMuPDF** – Extract text and layout from PDFs
 - **SentenceTransformers** – Semantic similarity using `all-MiniLM-L6-v2`
 - **Docker** – For containerized, reproducible CPU-only runs
-
----
 
 ## Installation and Usage
 
@@ -97,8 +91,6 @@ python main.py
 
 > Output is saved to `output.json` in the current directory.
 
----
-
 ### 2. Dockerized Usage
 
 #### Build the Docker image
@@ -115,7 +107,6 @@ docker run --rm \
 --network none \
 intelligent-doc-analyzer
 ```
----
 
 ## Constraints & Performance
 
@@ -124,8 +115,6 @@ intelligent-doc-analyzer
 - **≤ 1GB RAM** – Lightweight model (`all-MiniLM-L6-v2`)
 - **Fast** – Analyzes 3–5 documents within **60 seconds**
 - **Secure** – No external API calls or data leakage
-
----
 
 ## Folder Structure
 
@@ -142,10 +131,6 @@ intelligent-doc-analyzer
 └── requirements.txt
 ```
 
----
-
 ## Acknowledgments
 
 This project was built as part of **Adobe India Hackathon 2025**, showcasing document intelligence capabilities using open-source tools and language models.
-
-```
